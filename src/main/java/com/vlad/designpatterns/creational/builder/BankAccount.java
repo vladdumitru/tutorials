@@ -1,5 +1,7 @@
 package com.vlad.designpatterns.creational.builder;
 
+import java.util.Objects;
+
 public class BankAccount {
     private String name;
     private String accountNumber;
@@ -60,5 +62,21 @@ public class BankAccount {
 
     public boolean isNewsletter() {
         return newsletter;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BankAccount that = (BankAccount) o;
+        return isNewsletter() == that.isNewsletter() &&
+                Objects.equals(getName(), that.getName()) &&
+                Objects.equals(getAccountNumber(), that.getAccountNumber()) &&
+                Objects.equals(getEmail(), that.getEmail());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getAccountNumber(), getEmail(), isNewsletter());
     }
 }
