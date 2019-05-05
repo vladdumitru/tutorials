@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 public class CheckIfNumberIsPrime {
     static Integer numberToCheckForPrime = 55;
 
-    public static void main(String args[]){
+    public static void main(String[] args){
         System.out.println("Is it a prime number: "+isPrime(numberToCheckForPrime));
     }
 
